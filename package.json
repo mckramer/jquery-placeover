@@ -1,0 +1,11 @@
+{
+  "name"          : "jQuery.placeover",
+  "description"   : "Text overlay for input fields. A new take on the placeholder shim for jQuery to provide HTML5 behavior to legacy browsers.",
+  "homepage"      : "http://mckramer.github.io/jquery-placeover/",
+  "keywords"      : ["placeover", "placeholder", "overtext"],
+  "author"        : "Max Kramer <mckramer@gmail.com>",
+  "repository"    : {"type": "git", "url": "git://github.com/mckamer/jquery-placeover.git"},
+  "main"          : "src/js/jquery.placeover.js",
+  "version"       : "0.1.0",
+  "license"       : "MIT",
+}
