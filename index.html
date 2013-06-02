@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery.placeover</title>
+    <link href="http://netdna.bootstrapcdn.com/bootswatch/2.3.1/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="./jquery.placeover.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <div class="container">
+      <header class="page-header">
+        <div class="row-fluid">
+          <div class="offset7 span5">
+            <ul class="nav nav-pills">
+              <li class="active"><a href="./">Home</a></li>
+              <li><a href="./examples.html">Examples</a></li>
+              <li><a href="https://github.com/mckramer/jquery-placeover/">README</a></li>
+              <li><a href="https://github.com/mckramer/jquery-placeover/issues">Issues</a></li>
+            </ul>
+          </div>
+        </div>
+        <h1>jQuery.placeover <small>v0.1.0 ALPHA</small></h1>
+        <p class="lead">Text overlay for input fields. A new take on the placeholder shim for jQuery to provide HTML5 behavior.  Inspired by <a href="http://mootools.net/docs/more/Forms/OverText">OverText for MooTools</a>.</p>
+      </header>
+      
+      <h2>Form</h2>
+      <form class="form-horizontal">
+        
+        <div class="control-group">
+          <label class="control-label" for="textField">Text field</label>
+          <div class="controls">
+            <input type="text" name="textField" id="textField" placeholder="Text field" />
+            <span class="help-inline">Matches HTML5 placeholder behavior.</span>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label" for="passwordField">Password field</label>
+          <div class="controls">
+            <input type="password" name="passwordField" id="passwordField" placeholder="Password field" />
+            <span class="help-inline">Even works on password fields with no extra configuration.</span>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label" for="textArea">Text area</label>
+          <div class="controls">
+            <textarea name="textArea" id="textArea" rows="3" placeholder="Text area"></textarea>
+            <span class="help-inline">Need a text area?</span>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label class="control-label" for="textFieldWith">Text field with information</label>
+          <div class="controls">
+            <input type="text" name="textFieldWith" id="textFieldWith" value="value" placeholder="Text field" />
+            <span class="help-inline">With default value.</span>
+          </div>
+        </div>
+        
+      </form>
+      
+      <h2>Usage</h2>
+      <h3>Quickstart</h3>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>Include jQuery and the placeover plugin.</p>
+          <p>Call the <code>placeover</code> method on a selector.  Ensure that is called after html is complete (through on ready event or at bottom of page).</p>
+          <p>Placeover is by default a shim, so it will not introduce this behavior on <a href="http://caniuse.com/input-placeholder">browsers that natively support</a> the placeholder attribute.  However, you can override these settings to ignore supported handling if desired.</p>
+        </div>
+        <div class="span8">
+          <pre>&lt;input type="text" placeholder="example placeholder" /&gt;</pre>
+          <pre>
+&lt;script src="./jquery.js"&gt;&lt;/script&gt;
+&lt;script src="./jquery.placeover.js"&gt;&lt;/script&gt;</pre>
+          <pre>$('#input').placeover();</pre>
+        </div>
+      </div>
+      
+      <h3>Options</h3>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>Upon initialization, you can pass a set of options through to the <code>placeover</code> method.</p>
+        </div>
+        <div class="span8">
+        <pre>$('#input').placeover(options);</pre>
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>class</td>
+              <td>string</td>
+              <td>'input-placeover'</td>
+              <td>The class to be added to the placeover element</td>
+            </tr>
+            <tr>
+              <td>eventNamespace</td>
+              <td>string</td>
+              <td>'.placeover'</td>
+              <td>The namespace to be used when triggering the show/hide events.</td>
+            </tr>
+            <tr>
+              <td>hideClass</td>
+              <td>string</td>
+              <td>'hide'</td>
+              <td>The class to be added to the placeover element when it should not be visible.  If set to a falsey value, then will simply toggle display (from none to inline) instead of adding a class.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <h3>Methods</h3>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>Not everything has to be automatic.  You can manually trigger the placeover when needed.</p>
+        </div>
+        <div class="span8">
+          <pre>$('#input').placeover('show');</pre>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>hide</td>
+                <td>Hides the placeover text.</td>
+              </tr>
+              <tr>
+                <td>reposition</td>
+                <td>Resets the position of the placeover text.  Useful when manipulating styles of the input box or moving input fields around.</td>
+              </tr>
+              <tr>
+                <td>show</td>
+                <td>Shows the placeover text.</td>
+              </tr>
+              <tr>
+                <td>update</td>
+                <td>Change the placeover text.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <h3>Events</h3>
+      <div class="row-fluid">
+        <div class="span4">
+          <p>Bind to events to further customize the behavior.</p>
+        </div>
+        <div class="span8">
+          <pre>$('#input').on('show.placeover', showHandler);</pre>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>show</td>
+                <td>This event fires immediately when the <code>show</code> instance method is called.  You can prevent the method from being shown by preventing default on the event.</td>
+              </tr>
+              <tr>
+                <td>shown</td>
+                <td>This event is fired when the placeover element has been made visible to the user.</td>
+              </tr>
+              <tr>
+                <td>hide</td>
+                <td>This event fires immediately when the <code>hide</code> instance method is called.  You can prevent the method from being hidden by preventing default on the event.</td>
+              </tr>
+              <tr>
+                <td>hidden</td>
+                <td>This event is fired when the placeover element has been hidden from the user.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <h2>Contact</h2>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" src="http://www.gravatar.com/avatar/7f7656e80cd96458ccdffef5a4ff6843.jpg?s=64">
+        </a>
+        <div class="media-body">
+          <h4 class="media-header">Max Kramer</h4>
+          <p></p>
+          <p>Feel free to reach out to me on GitHub or Twitter using the links below.</p>
+          <ul class="thumnails">
+            <li class="span1">
+              <a class="thumbnail" href="https://github.com/mckramer">
+                <img src="./github.png" />
+              </a>
+            </li>
+            <li class="span1">
+              <a class="thumbnail" href="https://twitter.com/maxckramer">
+                <img src="./twitter.png" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <h2>License</h2>
+      <p>MIT</p>
+      
+    </div>
+    
+    <a href="https://github.com/mckramer/jquery-placeover"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+      $.fn.placeoverSetup = { ignoreSupported: true };
+    </script>
+    <script src="./jquery.placeover.js"></script>
+    
+    <script>
+      $( function () {
+        $('input, textarea').placeover();
+        setTimeout( function () {
+          $('input, textarea').placeover('reposition');
+        }, 100);
+      });
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery.placeover examples</title>
+    <link href="http://netdna.bootstrapcdn.com/bootswatch/2.3.1/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="./jquery.placeover.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <div class="container">
+      <header class="page-header">
+        <div class="row-fluid">
+          <div class="offset7 span5">
+            <ul class="nav nav-pills">
+              <li><a href="./">Home</a></li>
+              <li class="active"><a href="./examples.html">Examples</a></li>
+              <li><a href="https://github.com/mckramer/jquery-placeover/">README</a></li>
+              <li><a href="https://github.com/mckramer/jquery-placeover/issues">Issues</a></li>
+            </ul>
+          </div>
+        </div>
+        <h1>jQuery.placeover <small>Examples</small></h1>
+      </header>
+      
+      <form class="form-horizontal">
+        
+        <h3>Basic</h3>
+        <div class="control-group">
+          <label class="control-label" for="textField"></label>
+          <div class="controls">
+            <input type="text" name="textField" id="textField" placeholder="Placeover" />
+            <span class="help-inline"></span>
+          </div>
+        </div>
+        
+        <h3>Default value</h3>
+        <div class="control-group">
+          <label class="control-label" for="textFieldWith"></label>
+          <div class="controls">
+            <input type="text" name="textFieldWith" id="textFieldWith" value="Value" placeholder="Placeover" />
+            <span class="help-inline">Remove value and placeover will appear.</span>
+          </div>
+        </div>
+        
+        <h3>Updating input value</h3>
+        <div class="control-group">
+          <label class="control-label" for="valField"></label>
+          <div class="controls">
+            <div>
+              <input type="text" name="valField" id="valField" placeholder="Placeover" />
+              <span class="help-inline"></span>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="row-fluid">
+          <div class="span7">
+            <pre>$('#input').val('newValue');</pre>
+          </div>
+          <div class="span5">
+            <div class="input-append" style="margin-top: 4.5px;">
+              <input type="text" class="input-small" id="valInput" value="Value" />
+              <button type="button" class="btn" id="valButton">Update value</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row-fluid">
+          <div class="span7">
+            <pre>$('#input').val('');</pre>
+          </div>
+          <div class="span5">
+            <div class="input-append" style="margin-top: 4.5px;">
+              <button type="button" class="btn" id="clearValButton">Clear value</button>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Changing placeover text</code></h3>
+        <div class="control-group">
+          <label class="control-label" for="placeoverField"></label>
+          <div class="controls">
+            <input type="text" name="placeoverField" id="placeoverField" placeholder="Placeover" />
+            <span class="help-inline"></span>
+          </div>
+        </div>
+        
+        <div class="row-fluid">
+          <div class="span7">
+            <pre>$('#input').placeover('update', newPlaceholder);</pre>
+          </div>
+          <div class="span5">
+            <div class="input-append" style="margin-top: 4.5px;">
+              <input type="text" class="input-small" id="placeoverInput" value="New" />
+              <button type="button" class="btn" id="placeoverButton">Update placeover</button>
+            </div>
+          </div>
+        </div>
+        
+      </form>
+      
+    </div>
+    
+    <a href="https://github.com/mckramer/jquery-placeover"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+      $.fn.placeoverSetup = { ignoreSupported: true };
+    </script>
+    <script src="./jquery.placeover.js"></script>
+    
+    <script>
+      $( function () {
+        $('input, textarea').placeover();
+        setTimeout( function () {
+          $('input, textarea').placeover('reposition');
+        }, 100);
+        
+        $('#valButton').on('click', function (e) {
+          e.preventDefault();
+          $('#valField').val($('#valInput').val());
+        });
+        
+        $('#clearValButton').on('click', function (e) {
+          e.preventDefault();
+          $('#valField').val('');
+        });
+        
+        $('#placeoverButton').on('click', function (e) {
+          e.preventDefault();
+          $('#placeoverField').placeover('text', $('#placeoverInput').val());
+        });
+      });
+    </script>
+    
+  </body>
+</html>
