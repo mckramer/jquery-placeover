@@ -18,12 +18,11 @@
     , isTextareaSupported     = 'placeholder' in document.createElement('textarea')
     , isPlaceholderSupported  = isInputSupported && !ignoreSupported
     , defaults = {
-        class: 'input-placeover',
         event: 'type',
         eventNamespace: '.placeover',
         explicit: false,
         hideClass: 'hide',
-        inputClass: 'placeover'
+        overClass: 'input-placeover'
       }
     , hooks = {
         set: function (element, value) {
@@ -112,7 +111,7 @@
       // Setup placeover text
       this.$text = $('<span unselectable="on" />');
       this.$text
-        .addClass(this.options.class)
+        .addClass(this.options.overClass)
         .css('height', this.$input.height())
         .css('width', this.$input.width())
         .text(this.$input.attr('placeholder'));
