@@ -1,13 +1,10 @@
 /**
- * Placeover plugin for jQuery
- * 
- * Heavily borrowed from MooTools More - OverText
+ * Placeover plugin for jQuery.
  * 
  * @author Max Kramer (@maxckramer)
- * @version 0.0.1
+ * @version 0.1.0
+ * @license MIT
  */
-/*jshint laxcomma:true */
-/*global jQuery:false */
 ;(function (window, document, $, undefined) {
   
   "use strict";
@@ -18,12 +15,11 @@
     , isTextareaSupported     = 'placeholder' in document.createElement('textarea')
     , isPlaceholderSupported  = isInputSupported && !ignoreSupported
     , defaults = {
-        class: 'input-placeover',
         event: 'type',
         eventNamespace: '.placeover',
         explicit: false,
         hideClass: 'hide',
-        inputClass: 'placeover'
+        overClass: 'input-placeover'
       }
     , hooks = {
         set: function (element, value) {
@@ -63,7 +59,7 @@
         return 0;
       }
       return range.text.length;
-    } else if (el.selectionStart != null) {
+    } else if (el.selectionStart !== null) {
       return el.selectionStart;
     }
   }
@@ -112,7 +108,7 @@
       // Setup placeover text
       this.$text = $('<span unselectable="on" />');
       this.$text
-        .addClass(this.options.class)
+        .addClass(this.options.overClass)
         .css('height', this.$input.height())
         .css('width', this.$input.width())
         .text(this.$input.attr('placeholder'));
@@ -203,8 +199,8 @@
     reposition: function () {
       var position = this.position();
       this.$text
-        .css('top',  position.top)
-        .css('left', position.left);
+          .css('top',  position.top)
+          .css('left', position.left);
     },
     
     show: function (event) {
