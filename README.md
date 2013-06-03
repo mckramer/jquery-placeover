@@ -6,7 +6,7 @@ Many current placeholder plugins handle the placeholder by setting it as the val
 This plugin was initially inspired by the [OverText plugin for MooTools](http://mootools.net/docs/more/Forms/OverText).  It attempts to bring this basic concept to jQuery, but also improve the handling to match native placeholder handling.
 
 ## Quickstart
-You do not have to do anything special to use OverText.  Define a input as you would normally, specifying the placeholder with its attribute.
+You do not have to do anything special to use Placeover.  Define a input as you would normally, specifying the placeholder with its attribute.
 ```html
 <input type="text" name="firstName" placeholder="First name" />
 ```
@@ -19,11 +19,11 @@ $( function () {
 
 Head on over to the [website](http://mckramer.github.io/jquery-placeover/) for full information, including documentation on options, methods, and events.
 
-## Versions
-Follows [semantic versioning](http://semver.org).  See `CHANGELOG.md` for more information on specific versions and changes.
+## Compatibility
+Created for use with IE 7-9 and jQuery 1.x.  Placeover is designed as a shim, so it should be safe to use will all browsers, and by default delegates to native placeholder behavior.
 
-## Contributing
-See `CONTRIBUTING.md`.
+## Versioning
+`major.minor.patch`, follows [semantic versioning](http://semver.org).  See `CHANGELOG.md` for more information on specific versions and changes.
 
 ## Author
 Max Kramer
