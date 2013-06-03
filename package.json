@@ -5,7 +5,7 @@
   "keywords"      : ["placeover", "placeholder", "overtext"],
   "author"        : "Max Kramer <mckramer@gmail.com>",
   "repository"    : { "type": "git", "url": "git://github.com/mckamer/jquery-placeover.git" },
-  "main"          : "jquery.placeover.min.js",
+  "main"          : "dist/jquery.placeover.min.js",
   "version"       : "0.1.0",
   "license"       : "MIT",
   
