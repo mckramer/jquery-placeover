@@ -6,8 +6,6 @@
  * @author Max Kramer (@maxckramer)
  * @version 0.0.1
  */
-/*jshint laxcomma:true */
-/*global jQuery:false */
 ;(function (window, document, $, undefined) {
   
   "use strict";
@@ -62,7 +60,7 @@
         return 0;
       }
       return range.text.length;
-    } else if (el.selectionStart != null) {
+    } else if (el.selectionStart !== null) {
       return el.selectionStart;
     }
   }
@@ -202,8 +200,8 @@
     reposition: function () {
       var position = this.position();
       this.$text
-        .css('top',  position.top)
-        .css('left', position.left);
+          .css('top',  position.top)
+          .css('left', position.left);
     },
     
     show: function (event) {
