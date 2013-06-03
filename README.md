@@ -1,5 +1,5 @@
 # jQuery.placeover
-## Text overlay for input fields. A new take on the placeholder shim for jQuery to provide HTML5 behavior to legacy browsers.
+#### Text overlay for input fields. A new take on the placeholder shim for jQuery to provide HTML5 behavior to legacy browsers.
 
 Many current placeholder plugins handle the placeholder by setting it as the value of the input and removing it when needed.  Instead, Placeover positions text over the input, eliminating the hassle of ensuring the placeholders are not passed through with form submission as well as allowing a much closer replication of native behavior of the placeholder attribute in modern browsers.
 
