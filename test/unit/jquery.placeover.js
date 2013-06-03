@@ -33,7 +33,7 @@ test("hides text when setting value to input", function () {
 
 test("displays text on input focus", function () {
   $input.trigger('focus');
-  ok(textVisible($input))
+  ok(textVisible($input));
 });
 
 /*test("hides text when typing", function () {
@@ -111,7 +111,7 @@ test("appears on show", function () {
 test("disappears on hide", function () {
   ok(textVisible($input), "Text to be visible");
   $input.placeover('hide');
-  ok(textNotVisible($input), "Text to be hidden")
+  ok(textNotVisible($input), "Text to be hidden");
 });
   
 module("eventing", {
