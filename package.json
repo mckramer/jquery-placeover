@@ -1,11 +1,24 @@
 {
-  "name"          : "jQuery.placeover",
+  "name"          : "jquery-placeover",
   "description"   : "Text overlay for input fields. A new take on the placeholder shim for jQuery to provide HTML5 behavior to legacy browsers.",
   "homepage"      : "http://mckramer.github.io/jquery-placeover/",
   "keywords"      : ["placeover", "placeholder", "overtext"],
   "author"        : "Max Kramer <mckramer@gmail.com>",
-  "repository"    : {"type": "git", "url": "git://github.com/mckamer/jquery-placeover.git"},
-  "main"          : "src/js/jquery.placeover.js",
+  "repository"    : { "type": "git", "url": "git://github.com/mckamer/jquery-placeover.git" },
+  "main"          : "jquery.placeover.min.js",
   "version"       : "0.1.0",
   "license"       : "MIT",
+  
+  "devDependencies": {
+    "grunt"                 : "0.4.1",
+    "grunt-contrib-clean"   : "0.4.1",
+    "grunt-contrib-copy"    : "0.4.1",
+    "grunt-contrib-csslint" : "0.1.2",
+    "grunt-contrib-cssmin"  : "0.6.1",
+    "grunt-contrib-jshint"  : "0.3.0",
+    "grunt-contrib-qunit"   : "0.2.1",
+    "grunt-contrib-uglify"  : "0.2.0",
+    "grunt-contrib-watch"   : "0.3.1"
+  }
+  
 }
